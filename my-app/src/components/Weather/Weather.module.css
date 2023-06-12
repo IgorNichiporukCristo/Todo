@@ -1,0 +1,38 @@
+.containerWeather {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+}
+.containerContact {
+  display: flex;
+  flex-direction: column;
+}
+.formWeather {
+  width: 100%;
+  position: relative;
+}
+.inputWeather {
+  width: 100%;
+  border: 1px solid #7b8ceb;
+  border-radius: 5px;
+  outline: 0;
+  background-color: transparent;
+  padding: 4px 6px;
+}
+.button {
+  position: absolute;
+  top: 5px;
+  right: -10px;
+  background-color: transparent;
+  border: 0px;
+  cursor: pointer;
+}
+.iconWeather {
+  height: 30px;
+  width: 30px;
+}
+.tempContainer {
+  display: flex;
+  align-items: center;
+  margin: 0px;
+}

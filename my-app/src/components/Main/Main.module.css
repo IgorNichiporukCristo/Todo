@@ -3,9 +3,9 @@ body {
   display: flex;
   justify-content: center;
   box-sizing: border-box;
-  
 }
 .todoContainer {
+  margin-top: 20px;
   width: 47vw;
   display: flex;
   flex-direction: column;
@@ -14,4 +14,13 @@ body {
 .todoList {
   width: 100%;
   padding: 0px;
+}
+
+@media (max-width: 900px) {
+  body {
+    justify-content: flex-start;
+  }
+  .todoContainer {
+    margin-left: 20px; 
+  }
 }

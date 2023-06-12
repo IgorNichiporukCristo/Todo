@@ -1,6 +1,5 @@
-import { createSlice } from '@reduxjs/toolkit';
-import { stateType } from '../types/state';
-import type { PayloadAction } from '@reduxjs/toolkit';
+import { createSlice } from "@reduxjs/toolkit";
+import type { PayloadAction } from "@reduxjs/toolkit";
 
 export interface ITodo {
   id: number;
@@ -16,7 +15,7 @@ export const initialState: ITodos = {
 };
 
 const postsSlice = createSlice({
-  name: 'posts',
+  name: "posts",
   initialState,
   reducers: {
     addTodo: (state, action: PayloadAction<ITodo>) =>

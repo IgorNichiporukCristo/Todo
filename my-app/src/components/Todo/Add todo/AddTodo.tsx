@@ -1,8 +1,8 @@
-import React, { Dispatch, SetStateAction, useState } from 'react';
-import { useForm, SubmitHandler } from 'react-hook-form';
-import { useDispatch } from 'react-redux';
-import { ITodo, addTodo, editTodo } from '../Redux/posts.slice';
-import style from './AddTodo.module.css';
+import React, { Dispatch, SetStateAction, useState } from "react";
+import { useForm, SubmitHandler } from "react-hook-form";
+import { useDispatch } from "react-redux";
+import { ITodo, addTodo, editTodo } from "../../Redux/posts.slice";
+import style from "./AddTodo.module.css";
 
 type Input = {
   todo: string;
@@ -14,7 +14,7 @@ type AddProps = {
 
 export default function AddTodo({ el, setEdit }: AddProps) {
   const { register, handleSubmit, reset } = useForm<Input>({
-    defaultValues: { todo: el?.todo || '' },
+    defaultValues: { todo: el?.todo || "" },
   });
 
   const dispatch = useDispatch();
@@ -34,8 +34,16 @@ export default function AddTodo({ el, setEdit }: AddProps) {
   return (
     <div className={style.formContainer}>
       <form onSubmit={handleSubmit(onSubmit)}>
-        <input className={style.form} placeholder='Введите заметку' type="text" {...register('todo')} required />
-        <button className={style.button} type="submit">Добавить</button>
+        <input
+          className={style.form}
+          placeholder="Введите заметку"
+          type="text"
+          {...register("todo")}
+          required
+        />
+        <button className={style.button} type="submit">
+          Добавить
+        </button>
       </form>
     </div>
   );

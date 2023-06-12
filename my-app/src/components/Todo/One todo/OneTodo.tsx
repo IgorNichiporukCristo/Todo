@@ -1,11 +1,11 @@
 import React, { useState, memo } from "react";
 import { useDispatch } from "react-redux";
-import { delTodo } from "../Redux/posts.slice";
+import { ITodo, delTodo } from "../../Redux/posts.slice";
 import AddTodo from "../Add todo/AddTodo";
 import style from "./OneTodo.module.css";
-import { AiFillEdit, AiFillDelete } from 'react-icons/ai';
+import { AiFillEdit, AiFillDelete } from "react-icons/ai";
 
-function OneTodo({ el }: any) {
+function OneTodo({ el }: { el: ITodo }) {
   const dispatch = useDispatch();
   const [edit, setEdit] = useState(true);
   const [check, setCheck] = useState(true);
@@ -17,15 +17,22 @@ function OneTodo({ el }: any) {
   return (
     <li className={style.todoContainer}>
       {edit ? (
-        <>
-          <span className={style.todoText}>{el.todo}</span>
+        <div className={style.todoElement}>
+          <span
+            className={`${style.todoText} ${check ? "" : style.textThrough}`}
+          >
+            {el.todo}
+          </span>
           <div
             className={`${style.boxCheckbox} ${check ? "" : style.color}`}
             onClick={() => setCheck(() => !check)}
           />
           <AiFillEdit onClick={() => setEdit(() => !edit)} />
-          <AiFillDelete  onClick={() => deleteTodo(el.id)}/>
-        </>
+          <AiFillDelete
+            className={style.todoDelete}
+            onClick={() => deleteTodo(el.id)}
+          />
+        </div>
       ) : (
         <AddTodo el={el} setEdit={setEdit} />
       )}
@@ -33,4 +40,4 @@ function OneTodo({ el }: any) {
   );
 }
 
-export default React.memo(OneTodo);
+export default OneTodo;
